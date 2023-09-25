@@ -29,4 +29,21 @@ class SpringBootElasticsearchExampleApplicationTests {
         assertTrue(productList.size() == 3);
     }
 
+    @Test
+    void testFindProductsByName() {
+        List<Product> products = productService.getProductsByName("laptop");
+        assertTrue(products.size() == 1);
+    }
+
+    @Test
+    void testFindProductsByNameAndAnnotation() {
+        List<Product> products = productService.getProductsByNameAndAnnotation("laptop");
+        assertTrue(products.size() == 1);
+    }
+
+    @Test
+    void testFindProductsByNameAlike() {
+        List<Product> products = productService.getProductsByNameAlike("*l*");
+        assertTrue(products.size() == 2);
+    }
 }
