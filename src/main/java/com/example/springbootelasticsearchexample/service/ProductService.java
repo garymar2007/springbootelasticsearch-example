@@ -30,4 +30,16 @@ public class ProductService {
     public void deleteProduct(int id ) {
         productRepo.deleteById(id);
     }
+
+    public List<Product> getProductsByName(String name) {
+        return productRepo.findAllByName(name);
+    }
+
+    public List<Product> getProductsByNameAndAnnotation(String name) {
+        return productRepo.findAllByNameUsingAnnotations(name);
+    }
+
+    public List<Product> getProductsByNameAlike(String nameAlike) {
+        return productRepo.findAllProductsContainingName(nameAlike);
+    }
 }
